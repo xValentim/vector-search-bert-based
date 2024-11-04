@@ -94,3 +94,7 @@ We can see that the latent space is more informative for the classification task
 Spoking with a journalism-focused startup and presented the proof of concept (POC) to them. They validated it, aiming for the recommendation system to function as an aid tool for journalists to produce more content daily. In short, they needed this tool, connected with their existing automated content production system, to both classify and provide a broader context window for the tool to generate content by reusing its own older database.
 
 Additionally, it’s worth mentioning that both the classification (added in the Research stage) and the fine-tuning of the BERT model were well-received as products for the business context of the journalism startup. 
+
+### Deployment
+
+The system was deployed using FastAPI, the models ``.pth`` was deployed on hugging face [you can acces here](https://huggingface.co/). The API was deployed on Railway, you can access the API [here](https://vector-search-bert-based-production.up.railway.app/docs).
