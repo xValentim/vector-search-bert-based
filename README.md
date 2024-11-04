@@ -36,9 +36,7 @@ We train the VAE using a combination of reconstruction loss, KL divergence loss,
 
 **Loss Function:**
 
-
-$\mathcal{L}_{\text{total}} = \delta \times \mathcal{L}_{\text{recon}} + \beta \times \mathcal{L}_{\text{KL}} + \gamma \times \mathcal{L}_{\text{class}}$
-
+$$\mathbb{L_total} = \delta \mathbb{L_recon} + \beta \mathbb{L_dkl} + \gamma \mathbb{L_classification}$$
 
 Where:
 
