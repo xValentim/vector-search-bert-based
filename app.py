@@ -4,7 +4,7 @@ from retriever import *
 
 app = FastAPI()
 
-retriever = Retriever()
+retriever = Retriever(path_saved_model="https://huggingface.co/xValentim/vector-search-bert-based/resolve/main/vae_model_state_dict_2.pth")
 
 @app.get("/")
 def read_root():

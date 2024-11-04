@@ -7,6 +7,8 @@ from tqdm import tqdm
 from sklearn.metrics.pairwise import cosine_similarity
 from pydantic import BaseModel as PydanticBaseModel
 from src.models import VAE
+from huggingface_hub import hf_hub_download
+from urllib.parse import urlparse
 
 class Output(PydanticBaseModel):
     content: str
@@ -15,7 +17,7 @@ class Output(PydanticBaseModel):
 
 class Retriever:
     def __init__(self, 
-                 path_saved_model='./models/vae_model_state_dict_2.pth', 
+                 path_saved_model='https://huggingface.co/xValentim/vector-search-bert-based/resolve/main/vae_model_state_dict_2.pth', 
                  sample_size=None, 
                  path_saved_index='./data/mu_outputs.csv'):
         
@@ -35,8 +37,25 @@ class Retriever:
             dropout=0.5,
             batch_norm_1d=True
         )
+        
+        # Check if the path_saved_model is a URL
+        if path_saved_model.startswith('http'):
+            # Parse the URL to get the repository ID and filename
+            parsed_url = urlparse(path_saved_model)
+            path_parts = parsed_url.path.split('/')
+            repo_id = '/'.join(path_parts[1:3])  # e.g., 'xValentim/vector-search-bert-based'
+            filename = path_parts[-1]  # e.g., 'vae_model_state_dict_2.pth'
 
-        model_loaded.load_state_dict(torch.load(path_saved_model))
+            # Download the model file from the Hugging Face Hub
+            state_dict_path = hf_hub_download(repo_id=repo_id, filename=filename)
+
+            # Load the state dictionary
+            state_dict = torch.load(state_dict_path, map_location='cpu')
+        else:
+            # Load from local path
+            state_dict = torch.load(path_saved_model, map_location='cpu')
+
+        model_loaded.load_state_dict(state_dict)
         model_loaded.to('cpu')
         
         self.model = model_loaded
