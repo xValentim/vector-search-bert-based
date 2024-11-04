@@ -36,22 +36,20 @@ We train the VAE using a combination of reconstruction loss, KL divergence loss,
 
 **Loss Function:**
 
-
-$\mathcal{L}_{\text{total}} = \delta \times \mathcal{L}_{\text{recon}} + \beta \times \mathcal{L}_{\text{KL}} + \gamma \times \mathcal{L}_{\text{class}}$
-
+$$\mathbb{L_total} = \delta \mathbb{L_recon} + \beta \mathbb{L_dkl} + \gamma \mathbb{L_classification}$$
 
 Where:
 
 - $\mathcal{L}_{\text{recon}}$ is the reconstruction loss (Mean Squared Error) between the original embeddings and the reconstructed embeddings.
 - $\mathcal{L}_{\text{KL}}$ is the Kullback-Leibler divergence loss, encouraging the latent variables to follow a standard normal distribution.
-- $\mathcal{L}_{\text{class}}$ is the binary cross-entropy loss for sentiment classification.
+- $\mathcal{L}_{\text{class}}$ is the cross-entropy loss for classification.
 - $\beta$, $\gamma$, $\delta$ are weighting factors to balance the contributions of each loss component.
 
 **Reasoning:**
 
 - **Reconstruction Loss ($\mathcal{L}_{\text{recon}}$):** Ensures that the decoder can accurately reconstruct the original embeddings from the latent variables, preserving semantic information.
 - **KL Divergence Loss ($\mathcal{L}_{\text{KL}}$):** Regularizes the latent space to follow a normal distribution, promoting smoothness and continuity.
-- **Classification Loss ($\mathcal{L}_{\text{class}}$):** Guides the latent representations to be informative for the sentiment classification task.
+- **Classification Loss ($\mathcal{L}_{\text{class}}$):** Guides the latent representations to be informative for the classification task.
 
 By combining these losses, the model learns latent embeddings that are both semantically rich and discriminative for sentiment analysis.
 
