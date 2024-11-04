@@ -97,4 +97,4 @@ Additionally, it’s worth mentioning that both the classification (added in the
 
 ### Deployment
 
-The system was deployed using FastAPI, the models ``.pth`` was deployed on hugging face [you can acces here](https://huggingface.co/). The API was deployed on Railway, you can access the API [here](https://vector-search-bert-based-production.up.railway.app/docs).
+The system was deployed using FastAPI, the models ``.pth`` was deployed on hugging face [you can acces here](https://huggingface.co/xValentim/vector-search-bert-based/tree/main). The API was deployed on Railway, you can access the API [here](https://vector-search-bert-based-production.up.railway.app/docs).
