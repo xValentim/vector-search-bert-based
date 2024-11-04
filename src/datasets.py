@@ -58,7 +58,7 @@ def get_my_dataset(sample_size=None, sentence_length=128):
     df = pd.concat(dfs).reset_index(drop=True)
     # Add quebra de linha '\n'
     all_data = df.copy()
-    all_data['text'] = df['titulo'] + '\n' + df['subtitulo'] + '\n' + df['texto']
+    all_data['text'] = df['titulo'] + '\n\n' + df['subtitulo'] + '\n\n' + df['texto']
     all_data['class'] = df['label']
     all_data['url'] = df['url']
     all_data = all_data[['text', 'class', 'url']]

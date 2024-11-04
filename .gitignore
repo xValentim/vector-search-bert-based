@@ -2,4 +2,7 @@ env/
 .dist/
 scratch/
 README_building.md
+
 vae_model_state_dict.pth
+vae_model_state_dict_2.pth
+__pycache__
