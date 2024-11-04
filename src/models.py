@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from transformers import BertModel
-from arkad import BaseModel
+# from arkad import BaseModel
 
 
 class SamplingLayer(nn.Module):
@@ -16,7 +16,7 @@ class SamplingLayer(nn.Module):
         codings = torch.normal(mu, std)
         return codings
     
-class Encoder(BaseModel):
+class Encoder(nn.Module):
     def __init__(self,
                  hidden_dim=[768, 512, 256],
                  encoding_size=64,
@@ -75,7 +75,7 @@ class Encoder(BaseModel):
 
         return mu, log_var, codings, head_1, head_2
     
-class Decoder(BaseModel):
+class Decoder(nn.Module):
     def __init__(self,
                  encoding_size=64,
                  hidden_dim=[256, 512, 768],
@@ -103,7 +103,7 @@ class Decoder(BaseModel):
         x = self.mlp(x)
         return x
     
-class DecoderClassifier(BaseModel):
+class DecoderClassifier(nn.Module):
     def __init__(self,
                  encoding_size=64,
                  output_dim=1):
@@ -122,7 +122,7 @@ class DecoderClassifier(BaseModel):
         x = self.fc3(x)
         return x
     
-class VAE(BaseModel):
+class VAE(nn.Module):
     def __init__(self,
                  hidden_dim=[768, 512, 256],
                  encoding_size=64,
