@@ -1,0 +1,5 @@
+env/
+.dist/
+scratch/
+README_building.md
+vae_model_state_dict.pth
