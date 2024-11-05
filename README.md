@@ -91,9 +91,13 @@ We can see that the latent space is more informative for the classification task
 
 ### Entrepreneur
 
-Spoking with a journalism-focused startup and presented the proof of concept (POC) to them. They validated it, aiming for the recommendation system to function as an aid tool for journalists to produce more content daily. In short, they needed this tool, connected with their existing automated content production system, to both classify and provide a broader context window for the tool to generate content by reusing its own older database.
+I spoke with a journalism-focused startup and presented a proof of concept (POC) that they validated, expressing interest in two specific services they currently lack:
 
-Additionally, it’s worth mentioning that both the classification (added in the Research stage) and the fine-tuning of the BERT model were well-received as products for the business context of the journalism startup. 
+1. A **news classifier** to automate the process of categorizing articles, which is currently done manually by one or two interns. This automation would alleviate a key pain point for them, as the manual process is both time-consuming and labor-intensive. The interest shown by the startup underscores the value of this feature, as it addresses a clear operational need.
+
+2. A **search mechanism** to identify previous, related articles that could provide contextual support for the content being produced. Although they already have an automated content production system, this tool would enable the system to pull from existing material, offering a broader contextual window and facilitating content reuse.
+
+Both the classifier and the search functionality were well-received and seen as effective solutions aligned with the startup’s business goals, potentially enhancing their content production efficiency significantly.
 
 ### Deployment
 
