@@ -2,13 +2,13 @@
 
 ## Introduction
 
-In this project, we enhance a text retrieval system by leveraging embeddings generated from a Variational Autoencoder (VAE). We start with pre-trained BERT embeddings and fine-tune them using a VAE to better capture the semantics of movie reviews from the scrapping news dataset. Our goal is to improve the semantic representation of documents and queries, enabling more accurate and meaningful search results.
+In this project, we enhance a text retrieval system by leveraging embeddings generated from a Variational Autoencoder (VAE). Starting with pre-trained BERT embeddings, we fine-tune them using a VAE to better capture the semantics within a scraped news dataset. Our objective is to enrich the semantic representation of documents and queries, enabling more accurate and meaningful search results.
 
 ## Step 1: Generating Embeddings
 
 ### Dataset Description
 
-We use the news dataset extracted using scrapping (From poder360), you can see more about this content in ``notebooks/scrapping.ipynb``. The dataset consists of content about news articles, including text and labels for subject classification. We preprocess the dataset to extract tokens and labels for classification tasks.
+We use the news dataset extracted using scrapping (From poder360), you can see more about this content in ``notebooks/scrapping.ipynb``. The dataset consists of content about news articles, including text and labels for subject classification. We preprocess the dataset to extract tokens and labels for classification tasks inside of VAE architecture.
 
 ### Embedding Generation Process
 
@@ -55,7 +55,7 @@ By combining these losses, the model learns latent embeddings that are both sema
 
 ## Step 2: Visualizing Embeddings
 
-To understand how our embeddings represent the dataset, we visualize them using t-SNE, projecting the high-dimensional embeddings onto a 2D space. The projection was extract from \mu of the latent space. 
+To understand how our embeddings represent the dataset, we visualize them using t-SNE, projecting the high-dimensional embeddings onto a 2D space. The projection was extract from $\mu$ of the latent space. 
 
 ### Pre-trained Embeddings Visualization
 
@@ -71,7 +71,7 @@ In the visualization of the pre-trained BERT embeddings, we observe that the dat
 
 *Figure 3: t-SNE Visualization of Fine-tuned VAE Embeddings*
 
-After fine-tuning with the VAE, the embeddings exhibit more distinct clusters. Data points corresponding to multiple possible labels are more separated, indicating that the latent space now better captures the sentiment-related semantics. This separation suggests that the VAE effectively learned features relevant to the classification task during training.
+After fine-tuning with the VAE, the embeddings exhibit more distinct clusters. Data points corresponding to multiple possible labels are more separated, indicating that the latent space now better captures the subject-related semantics. This separation suggests that the VAE effectively learned features relevant to the classification task during training.
 
 ## Step 3: Testing the Search System
 
